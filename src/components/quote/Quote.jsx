@@ -8,6 +8,7 @@ import Typed from "react-typed";
 const Quote = () => {
   const [quote, setQuote] = useState(" ");
   const [author, setAuthor] = useState("");
+  const [length, setLength] = useState("");
   const [color, setColor] = useState("");
   const [ready, setReady] = useState("");
 
@@ -17,6 +18,7 @@ const Quote = () => {
       .then((result) => {
         setQuote(result.content);
         setAuthor("~" + result.author);
+        setLength(recognizeLength(result.length));
         setColor(getRandomColor);
         setReady(true);
       });
@@ -31,7 +33,7 @@ const Quote = () => {
           <Wrapper>
             <Hint>click anywhere to view the new quote </Hint>
             <QuoteBox>
-              <QuoteText>
+              <QuoteText alignText={length}>
                 <QuotesL />
                 <Typed strings={[quote]} typeSpeed={25} />
                 <QuotesR />
@@ -47,6 +49,15 @@ const Quote = () => {
   const getRandomColor = () => {
     const randomNumber = Math.floor(Math.random() * colors.length);
     return colors[randomNumber].color;
+  };
+  const recognizeLength = (length) => {
+    let isLong = "";
+    if (length > 48) {
+      isLong = true;
+    } else {
+      isLong = false;
+    }
+    return isLong;
   };
 
   return (
@@ -84,6 +95,7 @@ const Wrapper = styled.div`
   box-shadow: 0px 15px 33px 0px rgb(0 0 0 / 15%);
   overflow: hidden;
   min-width: 250px;
+  max-width: 800px;
   @media (max-width: 950px) {
     background: transparent;
     width: 100vw;
@@ -107,12 +119,11 @@ const QuoteBox = styled.div`
 const QuoteText = styled.div`
   position: relative;
   width: 100%;
-  text-align: center;
   font-size: 1.5rem;
   margin-bottom: 5vh;
   min-height: 150px;
   overflow: hidden;
-  text-align: left;
+  text-align: ${(props) => (props.alignText ? "left" : "center")};
 `;
 
 const QuoteAuthor = styled.div`
