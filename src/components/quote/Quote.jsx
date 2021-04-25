@@ -92,7 +92,7 @@ const Wrapper = styled.div`
   width: 50vw;
   margin: 0 auto;
   height: auto;
-  background: #ffffffba;
+  background: #ffffff7d;
   border-radius: 5px;
   box-shadow: 0px 15px 33px 0px rgb(0 0 0 / 15%);
   overflow: hidden;
@@ -111,7 +111,7 @@ const QuoteBox = styled.div`
   margin: 0 auto;
   width: 100%;
   height: auto;
-  min-height: 500px;
+  min-height: 300px;
   justify-content: center;
   align-items: center;
   padding: 50px;
