@@ -35,7 +35,7 @@ const Quote = () => {
             <QuoteBox>
               <QuoteText alignText={length}>
                 <QuotesL />
-                <Typed strings={[quote]} typeSpeed={25} />
+                <Typed strings={[quote]} typeSpeed={20} />
                 <QuotesR />
               </QuoteText>
               <QuoteAuthor>{author}</QuoteAuthor>
