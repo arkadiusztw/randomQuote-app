@@ -83,7 +83,8 @@ const Wrapper = styled.div`
   border-radius: 5px;
   box-shadow: 0px 15px 33px 0px rgb(0 0 0 / 15%);
   overflow: hidden;
-  @media (max-width: 800px) {
+  min-width: 250px;
+  @media (max-width: 950px) {
     background: transparent;
     width: 100vw;
     box-shadow: initial;
@@ -126,7 +127,7 @@ const Hint = styled.label`
   text-align: right;
   width: 100%;
   font-size: 0.6rem;
-  @media (max-width: 500px) {
+  @media (max-width: 950px) {
     position: absolute;
     top: 0;
   }
