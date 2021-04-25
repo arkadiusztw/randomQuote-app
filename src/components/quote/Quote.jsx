@@ -112,7 +112,7 @@ const QuoteText = styled.div`
   margin-bottom: 5vh;
   min-height: 150px;
   overflow: hidden;
-  text-align: justify;
+  text-align: left;
 `;
 
 const QuoteAuthor = styled.div`
