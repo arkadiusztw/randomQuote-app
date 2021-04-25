@@ -11,15 +11,16 @@ const Quote = () => {
   const [ready, setReady] = useState("");
 
   const getQuotesData = (e) => {
-    fetch("https://goquotes-api.herokuapp.com/api/v1/random?count=1")
+    fetch("https://api.quotable.io/random")
       .then((res) => res.json())
       .then((result) => {
-        setQuote(result.quotes[0].text);
-        setAuthor("~" + result.quotes[0].author);
+        setQuote(result.content);
+        setAuthor("~" + result.author);
         setColor(getRandomColor);
         setReady(true);
       });
   };
+
   useEffect(getQuotesData, []);
 
   const OutputData = () => {
