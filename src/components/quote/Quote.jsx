@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "../../data/themeData";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import FadeIn from "../fadeIn/fadeIn";
-import Typed from "react-typed";
+import Typing from "react-typing-animation";
 
 const Quote = () => {
   const [quote, setQuote] = useState(" ");
@@ -35,10 +35,12 @@ const Quote = () => {
             <QuoteBox>
               <QuoteText alignText={length}>
                 <QuotesL />
-                <Typed strings={[quote]} typeSpeed={20} />
+                <TypingEffect speed={20}>{quote}</TypingEffect>
                 <QuotesR />
               </QuoteText>
-              <QuoteAuthor>{author}</QuoteAuthor>
+              <QuoteAuthor>
+                <span>{author}</span>
+              </QuoteAuthor>
             </QuoteBox>
           </Wrapper>
         </FadeIn>
@@ -129,6 +131,9 @@ const QuoteText = styled.div`
 const QuoteAuthor = styled.div`
   width: 100%;
   text-align: right;
+`;
+const TypingEffect = styled(Typing)`
+  display: contents;
 `;
 
 const Hint = styled.label`
