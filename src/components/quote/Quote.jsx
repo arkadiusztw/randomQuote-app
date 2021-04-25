@@ -3,9 +3,10 @@ import styled from "styled-components";
 import colors from "../../data/themeData";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import FadeIn from "../fadeIn/fadeIn";
+import Typed from "react-typed";
 
 const Quote = () => {
-  const [quote, setQuote] = useState("");
+  const [quote, setQuote] = useState(" ");
   const [author, setAuthor] = useState("");
   const [color, setColor] = useState("");
   const [ready, setReady] = useState("");
@@ -31,7 +32,8 @@ const Quote = () => {
             <Hint>click anywhere to view the new quote </Hint>
             <QuoteBox>
               <QuoteText>
-                <QuotesL /> {quote}
+                <QuotesL />
+                <Typed strings={[quote]} typeSpeed={25} />
                 <QuotesR />
               </QuoteText>
               <QuoteAuthor>{author}</QuoteAuthor>
@@ -109,6 +111,7 @@ const QuoteText = styled.div`
   margin-bottom: 5vh;
   min-height: 150px;
   overflow: hidden;
+  text-align: justify;
 `;
 
 const QuoteAuthor = styled.div`
